@@ -21,7 +21,8 @@ Markov.prototype = (function () {
     each,
     pick,
     initState,
-    nextState;
+    nextState,
+    getChain;
 
   /**
    * チェインの初期化
@@ -141,9 +142,19 @@ Markov.prototype = (function () {
     state[chainLength - 1] = c;
   };
 
+  /**
+   * チェインを取得するためのインターフェイス
+   *
+   * @param  void
+   * @return object 生成したチェイン
+   */
+  getChain = function () {
+    return markovChain;
+  };
+
   return {
-    init: init,
-    markovChain: markovChain,
-    each: each
+    init:     init,
+    each:     each,
+    getChain: getChain
   };
 })();
